@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "author": "Carlos",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "hc_sr04", "top": -120, "left": 200, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": 100, "left": 200, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:5V", "hc_sr04:VCC", "red", [ "v40" ] ],
+    [ "esp:GND.1", "hc_sr04:GND", "black", [ "v30" ] ],
+    [ "esp:D5", "hc_sr04:TRIG", "green", [ "v20" ] ],
+    [ "esp:D18", "hc_sr04:ECHO", "yellow", [ "v10" ] ],
+    [ "esp:5V", "servo1:V+", "red", [] ],
+    [ "esp:GND.2", "servo1:GND", "black", [] ],
+    [ "esp:D13", "servo1:PWM", "orange", [] ]
+  ]
+}
