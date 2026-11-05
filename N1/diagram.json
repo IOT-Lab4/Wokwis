@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "author": "Nodo 1 - Pluviometro",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "btn", "top": 150, "left": -120, "attrs": { "color": "blue" } },
+    { "type": "wokwi-led-bar-graph", "id": "bar", "top": -120, "left": 330, "attrs": { "color": "lime" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": -110, "left": 200, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": -90, "left": 200, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r3", "top": -70, "left": 200, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r4", "top": -50, "left": 200, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r5", "top": -30, "left": 200, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r6", "top": -10, "left": 200, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r7", "top": 10, "left": 200, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r8", "top": 30, "left": 200, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r9", "top": 50, "left": 200, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r10", "top": 70, "left": 200, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    ["btn:1.l", "esp:D27", "blue", []],
+    ["btn:2.l", "esp:GND.1", "black", []],
+
+    ["esp:D13", "r1:1", "green", []],
+    ["esp:D14", "r2:1", "green", []],
+    ["esp:RX2", "r3:1", "green", []],
+    ["esp:TX2", "r4:1", "green", []],
+    ["esp:D18", "r5:1", "gold", []],
+    ["esp:D19", "r6:1", "gold", []],
+    ["esp:D21", "r7:1", "gold", []],
+    ["esp:D22", "r8:1", "red", []],
+    ["esp:D23", "r9:1", "red", []],
+    ["esp:D25", "r10:1", "red", []],
+
+    ["r1:2", "bar:A1", "green", []],
+    ["r2:2", "bar:A2", "green", []],
+    ["r3:2", "bar:A3", "green", []],
+    ["r4:2", "bar:A4", "green", []],
+    ["r5:2", "bar:A5", "gold", []],
+    ["r6:2", "bar:A6", "gold", []],
+    ["r7:2", "bar:A7", "gold", []],
+    ["r8:2", "bar:A8", "red", []],
+    ["r9:2", "bar:A9", "red", []],
+    ["r10:2", "bar:A10", "red", []],
+
+    ["bar:C1", "esp:GND.2", "black", []],
+    ["bar:C2", "esp:GND.2", "black", []],
+    ["bar:C3", "esp:GND.2", "black", []],
+    ["bar:C4", "esp:GND.2", "black", []],
+    ["bar:C5", "esp:GND.2", "black", []],
+    ["bar:C6", "esp:GND.2", "black", []],
+    ["bar:C7", "esp:GND.2", "black", []],
+    ["bar:C8", "esp:GND.2", "black", []],
+    ["bar:C9", "esp:GND.2", "black", []],
+    ["bar:C10", "esp:GND.2", "black", []]
+  ],
+  "dependencies": {}
+}
