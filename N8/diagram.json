@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "G3 TMS - Nodo 8 Gateway (fog) integrador",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-ili9341", "id": "tft", "top": -260, "left": 200, "rotate": 90, "attrs": {} },
+    { "type": "wokwi-ds1307", "id": "rtc", "top": 220, "left": -230, "attrs": {} },
+    { "type": "wokwi-led-ring", "id": "semaforo", "top": -230, "left": -260, "attrs": { "pixels": "12" } },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn",
+      "top": 110,
+      "left": -220,
+      "attrs": { "color": "red", "label": "Reconocer / Confirmar" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "tft:VCC", "esp:3V3", "red", [] ],
+    [ "tft:GND", "esp:GND.2", "black", [] ],
+    [ "tft:CS", "esp:15", "orange", [] ],
+    [ "tft:RST", "esp:4", "violet", [] ],
+    [ "tft:D/C", "esp:2", "green", [] ],
+    [ "tft:MOSI", "esp:23", "blue", [] ],
+    [ "tft:SCK", "esp:18", "cyan", [] ],
+    [ "tft:LED", "esp:3V3", "red", [] ],
+    [ "tft:MISO", "esp:19", "gray", [] ],
+    [ "rtc:GND", "esp:GND.1", "black", [] ],
+    [ "rtc:5V", "esp:5V", "red", [] ],
+    [ "rtc:SDA", "esp:21", "blue", [] ],
+    [ "rtc:SCL", "esp:22", "green", [] ],
+    [ "semaforo:GND", "esp:GND.1", "black", [] ],
+    [ "semaforo:VCC", "esp:5V", "red", [] ],
+    [ "semaforo:DIN", "esp:13", "green", [] ],
+    [ "btn:1.l", "esp:14", "yellow", [] ],
+    [ "btn:2.l", "esp:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}

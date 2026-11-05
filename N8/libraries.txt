@@ -1,0 +1,7 @@
+# Wokwi Library List
+PubSubClient
+Adafruit GFX Library
+Adafruit ILI9341
+Adafruit NeoPixel
+Adafruit BusIO
+RTClib
