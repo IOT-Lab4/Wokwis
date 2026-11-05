@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "author": "G3 TMS - Nodo 6 Piezometro",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "piezo", "top": -140, "left": -200, "attrs": { "label": "Piezometro 4-20 mA", "value": "400" } },
+    { "type": "wokwi-rgb-led", "id": "baliza", "top": -20, "left": 220, "attrs": { "common": "cathode" } },
+    { "type": "wokwi-resistor", "id": "rR", "top": 80, "left": 160, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "rG", "top": 110, "left": 160, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "rB", "top": 140, "left": 160, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "piezo:VCC", "esp:3V3", "red", [] ],
+    [ "piezo:GND", "esp:GND.1", "black", [] ],
+    [ "piezo:SIG", "esp:34", "green", [] ],
+    [ "esp:25", "rR:1", "red", [] ],
+    [ "rR:2", "baliza:R", "red", [] ],
+    [ "esp:26", "rG:1", "green", [] ],
+    [ "rG:2", "baliza:G", "green", [] ],
+    [ "esp:27", "rB:1", "blue", [] ],
+    [ "rB:2", "baliza:B", "blue", [] ],
+    [ "baliza:COM", "esp:GND.2", "black", [] ]
+  ],
+  "dependencies": {}
+}
