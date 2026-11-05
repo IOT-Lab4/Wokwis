@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "author": "G3 TMS - Nodo 2 Sumidero",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "sonar", "top": -150, "left": -200, "attrs": { "distance": "150" } },
+    { "type": "wokwi-relay-module", "id": "rele", "top": 40, "left": 220, "attrs": {} },
+    { "type": "wokwi-led", "id": "led", "top": 160, "left": 240, "attrs": { "color": "yellow", "label": "Alerta" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 230, "left": 180, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "sonar:VCC", "esp:VIN", "red", [] ],
+    [ "sonar:GND", "esp:GND.1", "black", [] ],
+    [ "sonar:TRIG", "esp:D5", "green", [] ],
+    [ "sonar:ECHO", "esp:D18", "yellow", [] ],
+    [ "rele:VCC", "esp:VIN", "red", [] ],
+    [ "rele:GND", "esp:GND.2", "black", [] ],
+    [ "rele:IN", "esp:D26", "blue", [] ],
+    [ "esp:D25", "r1:1", "orange", [] ],
+    [ "r1:2", "led:A", "orange", [] ],
+    [ "led:C", "esp:GND.2", "black", [] ]
+  ],
+  "dependencies": {}
+}
